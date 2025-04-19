@@ -38,12 +38,12 @@ processResources {
 
 tasks.withType(JavaCompile).configureEach {
     it.options.encoding = "UTF-8"
-    it.options.release = 17
+    it.options.release = 21
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
     withSourcesJar()
 }
 
@@ -62,5 +62,26 @@ sourceSets {
         resources {
             srcDirs = ['src/main/resources']
         }
+    }
+}
+
+// Configure toolchain to specify Java version
+tasks.withType(JavaCompile).configureEach {
+    javaCompiler = javaToolchains.compilerFor {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+// Add metadata to manifest
+jar {
+    manifest {
+        attributes(
+            'Implementation-Title': project.name,
+            'Implementation-Version': project.version,
+            'Implementation-Vendor': project.group,
+            'Built-By': System.properties['user.name'],
+            'Build-Jdk': System.properties['java.version'],
+            'Created-By': "Gradle ${gradle.gradleVersion}"
+        )
     }
 } 
