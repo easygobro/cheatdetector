@@ -1,0 +1,35 @@
+CheatDetector Mod Build Instructions
+=====================================
+
+Since we couldn't build the JAR file directly, here's how to build it on your system:
+
+1. Install JDK 17 and Gradle if you don't have them already
+
+2. Open a terminal/command prompt and navigate to the CheatDetector directory
+
+3. Run the following commands:
+   ```
+   gradle wrapper
+   ./gradlew build
+   ```
+   (On Windows use `gradlew.bat build` instead)
+
+4. The compiled JAR file will be located at:
+   `build/libs/cheatdetector-1.0.0.jar`
+
+5. Copy this JAR file to your Fabric server's `mods` folder
+
+6. Make sure you have Fabric API installed in your server's `mods` folder
+   (Download it from https://www.curseforge.com/minecraft/mc-mods/fabric-api)
+
+7. Start/restart your server
+
+Testing Commands
+---------------
+Once the server is running with the mod installed, you can use these commands:
+
+- `/cd help` - Shows all available commands
+- `/testspeed` - Simulates a speed hack to test detection
+- `/testfly` - Simulates a flight hack to test detection
+
+Note: You need to be an operator to use these commands. 

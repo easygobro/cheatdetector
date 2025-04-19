@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "cheatdetector",
+  "version": "${version}",
+  "name": "CheatDetector",
+  "description": "A server-side anti-cheat mod for detecting Meteor client and other cheats",
+  "authors": [
+    "CheatDetector Team"
+  ],
+  "contact": {
+    "homepage": "https://example.com/",
+    "sources": "https://github.com/yourname/cheatdetector"
+  },
+  "license": "MIT",
+  "icon": "assets/cheatdetector/icon.png",
+  "environment": "server",
+  "entrypoints": {
+    "main": [
+      "com.minecraft.cheatdetector.CheatDetector"
+    ]
+  },
+  "mixins": [
+    "cheatdetector.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "minecraft": "~1.21",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
+} 
